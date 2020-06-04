@@ -5,7 +5,6 @@ import java.awt.*;
 
 public class Main extends JFrame {
 
-    GraphicsEnvironment graphicsEnvironment = GraphicsEnvironment.getLocalGraphicsEnvironment();
     JMenuBar mainBar = new JMenuBar();
     JMenu cpsMenu1 = new JMenu();
     JMenuItem closeItem = new JMenuItem();
