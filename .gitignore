@@ -1,0 +1,12 @@
+.idea
+out
+target
+run
+build
+*.iml
+*.iws
+*.ipr
+.classpath
+.project
+.vscode
+.DS_Store
