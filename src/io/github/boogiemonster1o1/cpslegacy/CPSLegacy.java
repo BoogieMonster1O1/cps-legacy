@@ -82,7 +82,7 @@ public class CPSLegacy extends JFrame {
 
     static CPSLegacy CPS;
 
-    private synchronized void loopGetClicks(){
+    private void loopGetClicks(){
         System.out.println("Looped");
         new Thread() {
             public void run() {
