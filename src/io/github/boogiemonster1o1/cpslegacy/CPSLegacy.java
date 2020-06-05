@@ -27,7 +27,6 @@ public class CPSLegacy extends JFrame {
         this.cpsMenu1.add(issuesItem);
         this.cpsMenu1.addSeparator();
         this.cpsMenu1.add(closeItem);
-        this.cpsMenu1.addSeparator();
         this.mainBar.add(this.cpsMenu1);
         this.setJMenuBar(mainBar);
         this.setLayout(null);
