@@ -15,8 +15,8 @@ public class CPSLegacy extends JFrame {
     private JMenuItem issuesItem = new JMenuItem("Report bugs");
     private JLabel headingLabel = new JLabel("Clicks Per Second (Legacy edition)", SwingConstants.CENTER);
     private JButton keepClicking = new JButton("Keep Clicking");
-    private JLabel clickSpeed = new JLabel("",SwingConstants.CENTER);
-    private JLabel clicks = new JLabel("",SwingConstants.CENTER);
+    private JLabel clickSpeed = new JLabel("CPS: 0",SwingConstants.CENTER);
+    private JLabel clicks = new JLabel("Clicks: 0",SwingConstants.CENTER);
     private int clickCount = 0;
     private int numSeconds = 1;
     private int start = 0;
@@ -58,7 +58,7 @@ public class CPSLegacy extends JFrame {
             public void actionPerformed(ActionEvent actionEvent) {
                 clickCount++;
                 start++;
-                clicks.setText(String.valueOf(start));
+                clicks.setText(modifyClicks(start));
                 System.out.println("Clicked!");
             }
         });
@@ -91,7 +91,7 @@ public class CPSLegacy extends JFrame {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                clickSpeed.setText(String.valueOf(clickCount));
+                clickSpeed.setText(modifyClickSpeed(clickCount));
                 clickCount = 0;
                 loopGetClicks();
             }
@@ -104,6 +104,13 @@ public class CPSLegacy extends JFrame {
 
     public void setResizable(boolean resizable) {
         super.setResizable(false);
+    }
+
+    private String modifyClicks(int val){
+        return "Clicks: " + val;
+    }
+    private String modifyClickSpeed(int val){
+        return "CPS: " + val;
     }
 
     void openBrowserWindow(String url){
