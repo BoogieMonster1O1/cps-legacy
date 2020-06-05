@@ -2,31 +2,34 @@ package io.github.boogiemonster1o1.cpslegacy;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 
-@SuppressWarnings("all")
 public class CPSLegacy extends JFrame {
-    Font defaultFont;
-    JMenuBar mainBar = new JMenuBar();
-    JMenu cpsMenu1 = new JMenu("Program");
-    JMenuItem closeItem = new JMenuItem("Close Program");
-    JMenuItem sourceItem = new JMenuItem("Visit github page");
-    JMenuItem issuesItem = new JMenuItem("Report bugs");
-    JLabel headingLabel = new JLabel("Clicks Per Second (Legacy edition)", SwingConstants.CENTER);
-    JButton keepClicking = new JButton("Keep Clicking");
-    int clickCount = 0;
-    int numSeconds = 1;
-    int start = 0;
+    private Font defaultFont;
+    private JMenuBar mainBar = new JMenuBar();
+    private JMenu cpsMenu1 = new JMenu("Program");
+    private JMenuItem closeItem = new JMenuItem("Close Program");
+    private JMenuItem sourceItem = new JMenuItem("Visit github page");
+    private JMenuItem issuesItem = new JMenuItem("Report bugs");
+    private JLabel headingLabel = new JLabel("Clicks Per Second (Legacy edition)", SwingConstants.CENTER);
+    private JButton keepClicking = new JButton("Keep Clicking");
+    private JLabel clickSpeed = new JLabel("",SwingConstants.CENTER);
+    private JLabel clicks = new JLabel("",SwingConstants.CENTER);
+    private int clickCount = 0;
+    private int numSeconds = 1;
+    private int start = 0;
 
     private CPSLegacy(String lnf) throws Throwable {
         UIManager.setLookAndFeel(lnf);
         this.closeItem.addActionListener(new CloseActionListener());
         this.sourceItem.addActionListener(new GithubSourceActionListener());
         this.issuesItem.addActionListener(new GithubIssuesActionListener());
-        this.cpsMenu1.add(sourceItem);
-        this.cpsMenu1.add(issuesItem);
+        this.cpsMenu1.add(this.sourceItem);
+        this.cpsMenu1.add(this.issuesItem);
         this.cpsMenu1.addSeparator();
-        this.cpsMenu1.add(closeItem);
+        this.cpsMenu1.add(this.closeItem);
         this.mainBar.add(this.cpsMenu1);
         this.setJMenuBar(mainBar);
         this.setLayout(null);
@@ -37,14 +40,33 @@ public class CPSLegacy extends JFrame {
 
         this.headingLabel.setFont(this.closeItem.getFont().deriveFont(Font.PLAIN).deriveFont(20.0f));
         this.headingLabel.setBounds(0, 10, 380, 25);
-        this.add(headingLabel);
+        this.add(this.headingLabel);
+
+        this.clickSpeed.setFont(this.defaultFont.deriveFont(Font.PLAIN).deriveFont(24.0f));
+        this.clickSpeed.setBounds(10,240,360,30);
+        this.add(this.clickSpeed);
+
+        this.clicks.setFont(this.defaultFont.deriveFont(Font.PLAIN).deriveFont(24.0f));
+        this.clicks.setBounds(10,280,360,30);
+        this.add(this.clicks);
 
         this.keepClicking.setFont(this.defaultFont.deriveFont(Font.BOLD).deriveFont(30.0f));
         this.keepClicking.setBounds(10, 40, 360, 180);
         this.keepClicking.setHorizontalAlignment(SwingConstants.CENTER);
-        this.add(keepClicking);
+        this.add(this.keepClicking);
+        this.keepClicking.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent actionEvent) {
+                clickCount++;
+                start++;
+                clicks.setText(String.valueOf(start));
+                System.out.println("Clicked!");
+            }
+        });
 
         this.setVisible(true);
+
+        this.loopGetClicks();
+
     }
 
 
@@ -58,13 +80,33 @@ public class CPSLegacy extends JFrame {
         }
     }
 
-    public static CPSLegacy CPS;
+    static CPSLegacy CPS;
+
+    private synchronized void loopGetClicks(){
+        System.out.println("Looped");
+        new Thread() {
+            public void run() {
+                try {
+                    Thread.sleep(numSeconds * 1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                clickSpeed.setText(String.valueOf(clickCount));
+                clickCount = 0;
+                loopGetClicks();
+            }
+        }.start();
+    }
 
     public JMenuBar getJMenuBar() {
         return this.mainBar;
     }
 
-    public void openBrowserWindow(String url){
+    public void setResizable(boolean resizable) {
+        super.setResizable(false);
+    }
+
+    void openBrowserWindow(String url){
         Runtime rt = Runtime.getRuntime();
         String os = System.getProperty("os.name").toLowerCase();
         try{
