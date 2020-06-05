@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Main-Class: io.github.boogiemonster1o1.cpslegacy.CPSLegacy
+
