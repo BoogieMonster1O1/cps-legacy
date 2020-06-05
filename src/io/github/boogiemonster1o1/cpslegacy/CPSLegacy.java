@@ -3,7 +3,7 @@ package io.github.boogiemonster1o1.cpslegacy;
 import javax.swing.*;
 import java.awt.*;
 
-public class Main extends JFrame {
+public class CPSLegacy extends JFrame {
 
     public Font defaultFont;
     public JMenuBar mainBar = new JMenuBar();
@@ -17,7 +17,7 @@ public class Main extends JFrame {
     public int numSeconds = 1;
     public int start = 0;
 
-    public Main() throws Throwable {
+    public CPSLegacy() throws Throwable {
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         this.closeItem.addActionListener(new CloseActionListener());
         this.visitItem.addActionListener(new VisitSourceActionListener());
@@ -50,7 +50,7 @@ public class Main extends JFrame {
     public static void main(String[] args) {
         System.out.println("Starting ClicksPerSecond Legacy...");
         try {
-            new Main();
+            new CPSLegacy();
         } catch (Throwable throwable) {
             throwable.printStackTrace();
             System.exit(1);
