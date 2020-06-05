@@ -14,3 +14,4 @@ Why not Java 1.1, or earlier? Well, Swing was originally introduced in J2SE 1.2,
 This work is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License](http://creativecommons.org/licenses/by-nc/4.0/)
 
 #### Check out the original project (archived) 
+[https://github.com/BoogieMonster1O1/cpscalculator](https://github.com/BoogieMonster1O1/cpscalculator)
