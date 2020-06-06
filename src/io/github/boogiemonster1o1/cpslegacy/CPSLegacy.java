@@ -134,7 +134,7 @@ public class CPSLegacy extends JFrame {
 
 
     /**
-     * The main method
+     * This is the main method
      * @param args Allows the method to be run
      */
     public static void main(String[] args) {
