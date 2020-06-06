@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"io.github.boogiemonster1o1.cpslegacy","l":"CloseActionListener"},{"p":"io.github.boogiemonster1o1.cpslegacy","l":"CPSLegacy"},{"p":"io.github.boogiemonster1o1.cpslegacy","l":"GithubIssuesActionListener"},{"p":"io.github.boogiemonster1o1.cpslegacy","l":"GithubSourceActionListener"}]
