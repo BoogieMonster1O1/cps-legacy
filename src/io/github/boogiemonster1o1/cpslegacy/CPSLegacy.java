@@ -80,6 +80,7 @@ public class CPSLegacy extends JFrame {
     private int start = 0;
 
     /**
+     * This is the main constructor, which sets up the Swing Window and opens it
      * @param lnf Stores the Look and Feel provided the the main method
      * @throws Throwable Setting the look and feel throws an exception if it fails, so adding it in the method signature is best
      */
@@ -133,6 +134,7 @@ public class CPSLegacy extends JFrame {
 
 
     /**
+     * The main method
      * @param args Allows the method to be run
      */
     public static void main(String[] args) {
@@ -157,6 +159,9 @@ public class CPSLegacy extends JFrame {
     private void loopGetClicks(){
         System.out.println("Looped");
         new Thread() {
+            /**
+             * Calculates the click speed
+             */
             public void run() {
                 try {
                     Thread.sleep(numSeconds * 1000);
@@ -171,6 +176,7 @@ public class CPSLegacy extends JFrame {
     }
 
     /**
+     * Overriden method
      * @return Returns the menu bar <code>mainBar</code>
      */
     public JMenuBar getJMenuBar() {
@@ -186,6 +192,7 @@ public class CPSLegacy extends JFrame {
     }
 
     /**
+     * Modifies the text
      * @param val The total number of clicks
      * @return Returns a String that contains <code>val</code>
      */
@@ -194,6 +201,7 @@ public class CPSLegacy extends JFrame {
     }
 
     /**
+     * Modifies the text
      * @param val The click speed
      * @return Returns a String that contains <code>val</code>
      */
