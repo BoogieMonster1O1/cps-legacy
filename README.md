@@ -17,3 +17,6 @@ This work is licensed under a [Creative Commons Attribution-NonCommercial 4.0 In
 
 #### Check out the original project (archived) 
 [https://github.com/BoogieMonster1O1/cpscalculator](https://github.com/BoogieMonster1O1/cpscalculator)
+
+#### Read the javadocs
+[https://boogiemonster1o1.github.io/cps-legacy](https://boogiemonster1o1.github.io/cps-legacy)
