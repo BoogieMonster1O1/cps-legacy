@@ -15,7 +15,7 @@ import java.io.IOException;
 public class CPSLegacy extends JFrame {
 
     /**
-     * Stores the default font provided by the System Look & Feel
+     * Stores the default font provided by the System Look and Feel
      */
     private Font defaultFont;
 
